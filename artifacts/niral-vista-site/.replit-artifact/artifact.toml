@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Niral Vista"
+description = "A responsive studio website for Niral Vista, a creative technology studio offering brand strategy, design, web development, motion, AI, and growth services. Showcases the team, capabilities, selected projects, process, FAQs, and a direct enquiry path."
+version = "1.0.0"
+id = "artifacts/niral-vista-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23453
+
+[services.development]
+run = "pnpm --filter @workspace/niral-vista-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/niral-vista-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/niral-vista-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23453"
+BASE_PATH = "/"
