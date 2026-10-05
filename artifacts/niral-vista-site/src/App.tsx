@@ -1,6 +1,20 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react';
 import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, X } from 'lucide-react';
 import StudioScene from '@/components/StudioScene';
+import niralVistaMark from '@assets/WhatsApp_Image_2026-10-05_at_8.38.37_PM_1791212950363.jpeg';
+import hospitalVisual from '@assets/generated_images/nv-hospital.jpg';
+import ecommerceVisual from '@assets/generated_images/nv-ecommerce.jpg';
+import restaurantVisual from '@assets/generated_images/nv-restaurant-pos.jpg';
+import neerxVisual from '@assets/generated_images/nv-neerx.jpg';
+import navexaVisual from '@assets/generated_images/nv-navexa.jpg';
+import civicpulseVisual from '@assets/generated_images/nv-civicpulse.jpg';
+import ragVisual from '@assets/generated_images/nv-rag-chatbot.jpg';
+import amlVisual from '@assets/generated_images/nv-aml-shield.jpg';
+import studentVisual from '@assets/generated_images/nv-student-path.jpg';
+import pantryVisual from '@assets/generated_images/nv-pantry-pilot.jpg';
+import healthVisual from '@assets/generated_images/nv-health-monitoring.jpg';
+import sosVisual from '@assets/generated_images/nv-sos-gesture.jpg';
+import foodWasteVisual from '@assets/generated_images/nv-food-waste.jpg';
 
 const services = [
   ['01', 'Brand strategy', 'A sharper point of view, a clearer place in the world.'],
@@ -56,11 +70,18 @@ const faqs = [
 ];
 const filters = ['All work', 'Digital products', 'Applied AI', 'Impact & access'];
 
-function ProjectArt({ kind, index }: { kind: string; index: number }) {
-  return <div className={`project-art art-${kind}`} aria-hidden="true">
-    <div className="art-orbit" /><div className="art-core">{index < 3 ? <span>{['care', 'market', 'serve'][index]}</span> : <i />}</div>
-    <div className="art-line art-line-one" /><div className="art-line art-line-two" />
+const projectVisuals = [
+  hospitalVisual, ecommerceVisual, restaurantVisual, neerxVisual, navexaVisual,
+  civicpulseVisual, ragVisual, amlVisual, studentVisual, pantryVisual,
+  healthVisual, sosVisual, foodWasteVisual,
+];
+
+function ProjectArt({ kind, index, title }: { kind: string; index: number; title: string }) {
+  return <div className={`project-art art-${kind}`}>
+    <img src={projectVisuals[index]} alt={`${title} 3D concept visual`} loading="lazy" />
+    <div className="art-shade" />
     <div className="art-index">NV / {String(index + 1).padStart(2, '0')}</div>
+    <div className="art-caption">3D CONCEPT VISUAL</div>
   </div>;
 }
 
@@ -116,7 +137,7 @@ function App() {
     <header className="topbar">
       <div className="nav-wrap wrap">
         <a href="#top" className="brand-lockup" aria-label="Niral Vista Innovations home" onClick={closeMenu}>
-          <span className="brand-mark">nv<span>.</span></span><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span>
+          <img className="brand-mark-image" src={niralVistaMark} alt="" /><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span>
         </a>
         <nav className={`main-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Main navigation">
           <a className="nav-link" href="#work" onClick={closeMenu}>Work</a>
@@ -164,7 +185,7 @@ function App() {
           {visibleProjects.map((project) => {
             const originalIndex = projects.indexOf(project);
             return <article className={`project-card reveal project-${originalIndex % 4}`} key={project[0]} data-testid={`card-project-${originalIndex + 1}`}>
-              <ProjectArt kind={project[3]} index={originalIndex} />
+              <ProjectArt kind={project[3]} index={originalIndex} title={project[0]} />
               <div className="project-meta"><span>{project[1]}</span><span>0{originalIndex + 1}</span></div>
               <div className="project-title-row"><div><h3>{project[0]}</h3><p>{project[2]}</p></div><span className="project-arrow"><ArrowUpRight size={17} /></span></div>
             </article>;
@@ -226,7 +247,7 @@ function App() {
     </section>
 
     <footer className="footer">
-      <div className="wrap footer-main"><a href="#top" className="brand-lockup footer-brand"><span className="brand-mark">nv<span>.</span></span><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span></a><p>Good ideas deserve<br />to become real things.</p><div className="footer-links"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#services">Capabilities</a><a href="#approach">Approach</a></div><a className="footer-top" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
+      <div className="wrap footer-main"><a href="#top" className="brand-lockup footer-brand" aria-label="Niral Vista Innovations home"><img className="brand-mark-image" src={niralVistaMark} alt="" /><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span></a><p>Good ideas deserve<br />to become real things.</p><div className="footer-links"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#services">Capabilities</a><a href="#approach">Approach</a></div><a className="footer-top" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
       <div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NIRAL VISTA INNOVATIONS</span><span>INDEPENDENT BY NATURE. CONNECTED BY DESIGN.</span><a href="mailto:niralvistainnovations.freelance@gmail.com">SAY HELLO <ArrowUpRight size={12} /></a></div>
     </footer>
   </main>;
