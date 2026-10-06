@@ -1,5 +1,5 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check, ChevronDown, Instagram, Linkedin, Menu, X } from 'lucide-react';
 import StudioScene from '@/components/StudioScene';
 import niralVistaMark from '@assets/WhatsApp_Image_2026-10-05_at_8.38.37_PM_1791212950363.jpeg';
 import hospitalVisual from '@assets/generated_images/nv-hospital.jpg';
@@ -237,7 +237,7 @@ function App() {
       <div className="wrap contact-wrap">
         <div className="contact-top reveal"><span className="eyebrow">07 / YOUR NEXT MOVE</span><span className="contact-aside">A GOOD IDEA<br />LOOKS GOOD ON YOU.</span></div>
         <div className="contact-grid">
-          <div className="contact-copy reveal"><h2 className="display">Let’s make<br />something <em>matter.</em></h2><p>Bring us the half-formed thought, the stubborn challenge or the next big step. We’ll bring good questions and the right people.</p><div className="contact-methods"><a href="mailto:niralvistainnovations.freelance@gmail.com" className="contact-email">niralvistainnovations.freelance@gmail.com <ArrowUpRight size={16} /></a><a href="tel:+917806848181" className="contact-phone">+91 78068 48181</a></div><div className="contact-open"><span className="signal-dot" /> OPEN FOR THE RIGHT NEXT THING</div></div>
+          <div className="contact-copy reveal"><h2 className="display">Let’s make<br />something <em>matter.</em></h2><p>Bring us the half-formed thought, the stubborn challenge or the next big step. We’ll bring good questions and the right people.</p><div className="contact-purpose">PROJECT ENQUIRIES &amp; APPLICATIONS<span>CONTACT: SHANKARI</span></div><div className="contact-methods"><a href="mailto:niralvistainnovations.freelance@gmail.com" className="contact-email">niralvistainnovations.freelance@gmail.com <ArrowUpRight size={16} /></a><a href="tel:7806548181" className="contact-phone">7806548181</a></div><div className="contact-socials" aria-label="Social media"><a href="https://www.instagram.com/niral_vista/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @niral_vista"><Instagram size={15} /><span>@niral_vista</span><ArrowUpRight size={12} /></a><a href="https://www.linkedin.com/company/niral-vista-innovations/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn niral-vista-innovations"><Linkedin size={15} /><span>niral-vista-innovations</span><ArrowUpRight size={12} /></a></div><div className="contact-open"><span className="signal-dot" /> OPEN FOR THE RIGHT NEXT THING</div></div>
           <form className="enquiry-form reveal reveal-delay-1" onSubmit={submitEnquiry}>
             <div className="form-heading"><span>START WITH A NOTE</span><span>WE’LL TAKE IT FROM THERE.</span></div>
             <label>Your name<input name="name" placeholder="What should we call you?" required autoComplete="name" data-testid="input-name" /></label>
@@ -252,8 +252,8 @@ function App() {
     </section>
 
     <footer className="footer">
-      <div className="wrap footer-main"><a href="#top" className="brand-lockup footer-brand" aria-label="Niral Vista Innovations home"><img className="brand-mark-image" src={niralVistaMark} alt="" /><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span></a><p>Good ideas deserve<br />to become real things.</p><div className="footer-links"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#services">Capabilities</a><a href="#approach">Approach</a></div><a className="footer-top" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
-      <div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NIRAL VISTA INNOVATIONS</span><span>INDEPENDENT BY NATURE. CONNECTED BY DESIGN.</span><a href="tel:+917806848181">+91 78068 48181</a><a href="mailto:niralvistainnovations.freelance@gmail.com">SAY HELLO <ArrowUpRight size={12} /></a></div>
+      <div className="wrap footer-main"><a href="#top" className="brand-lockup footer-brand" aria-label="Niral Vista Innovations home"><img className="brand-mark-image" src={niralVistaMark} alt="" /><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span></a><p>Good ideas deserve<br />to become real things.</p><div className="footer-links"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#services">Capabilities</a><a href="#approach">Approach</a><a href="https://www.instagram.com/niral_vista/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.linkedin.com/company/niral-vista-innovations/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><a className="footer-top" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
+      <div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NIRAL VISTA INNOVATIONS</span><span>INDEPENDENT BY NATURE. CONNECTED BY DESIGN.</span><a href="tel:7806548181">7806548181</a><a href="mailto:niralvistainnovations.freelance@gmail.com">SAY HELLO <ArrowUpRight size={12} /></a></div>
     </footer>
   </main>;
 }
