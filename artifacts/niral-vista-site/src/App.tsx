@@ -115,6 +115,11 @@ function App() {
       if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
     }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+    const initialAnchor = window.location.hash.slice(1);
+    if (initialAnchor) requestAnimationFrame(() => {
+      const target = document.getElementById(initialAnchor);
+      if (target) window.scrollTo(0, Math.max(0, target.getBoundingClientRect().top + window.scrollY - 88));
+    });
     return () => observer.disconnect();
   }, []);
 
@@ -232,7 +237,7 @@ function App() {
       <div className="wrap contact-wrap">
         <div className="contact-top reveal"><span className="eyebrow">07 / YOUR NEXT MOVE</span><span className="contact-aside">A GOOD IDEA<br />LOOKS GOOD ON YOU.</span></div>
         <div className="contact-grid">
-          <div className="contact-copy reveal"><h2 className="display">Let’s make<br />something <em>matter.</em></h2><p>Bring us the half-formed thought, the stubborn challenge or the next big step. We’ll bring good questions and the right people.</p><a href="mailto:niralvistainnovations.freelance@gmail.com" className="contact-email">niralvistainnovations.freelance@gmail.com <ArrowUpRight size={16} /></a><div className="contact-open"><span className="signal-dot" /> OPEN FOR THE RIGHT NEXT THING</div></div>
+          <div className="contact-copy reveal"><h2 className="display">Let’s make<br />something <em>matter.</em></h2><p>Bring us the half-formed thought, the stubborn challenge or the next big step. We’ll bring good questions and the right people.</p><div className="contact-methods"><a href="mailto:niralvistainnovations.freelance@gmail.com" className="contact-email">niralvistainnovations.freelance@gmail.com <ArrowUpRight size={16} /></a><a href="tel:+917806848181" className="contact-phone">+91 78068 48181</a></div><div className="contact-open"><span className="signal-dot" /> OPEN FOR THE RIGHT NEXT THING</div></div>
           <form className="enquiry-form reveal reveal-delay-1" onSubmit={submitEnquiry}>
             <div className="form-heading"><span>START WITH A NOTE</span><span>WE’LL TAKE IT FROM THERE.</span></div>
             <label>Your name<input name="name" placeholder="What should we call you?" required autoComplete="name" data-testid="input-name" /></label>
@@ -248,7 +253,7 @@ function App() {
 
     <footer className="footer">
       <div className="wrap footer-main"><a href="#top" className="brand-lockup footer-brand" aria-label="Niral Vista Innovations home"><img className="brand-mark-image" src={niralVistaMark} alt="" /><span className="brand-name">NIRAL VISTA<small>INNOVATIONS</small></span></a><p>Good ideas deserve<br />to become real things.</p><div className="footer-links"><a href="#work">Work</a><a href="#studio">Studio</a><a href="#services">Capabilities</a><a href="#approach">Approach</a></div><a className="footer-top" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
-      <div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NIRAL VISTA INNOVATIONS</span><span>INDEPENDENT BY NATURE. CONNECTED BY DESIGN.</span><a href="mailto:niralvistainnovations.freelance@gmail.com">SAY HELLO <ArrowUpRight size={12} /></a></div>
+      <div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NIRAL VISTA INNOVATIONS</span><span>INDEPENDENT BY NATURE. CONNECTED BY DESIGN.</span><a href="tel:+917806848181">+91 78068 48181</a><a href="mailto:niralvistainnovations.freelance@gmail.com">SAY HELLO <ArrowUpRight size={12} /></a></div>
     </footer>
   </main>;
 }

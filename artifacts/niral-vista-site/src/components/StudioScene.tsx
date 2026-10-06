@@ -18,6 +18,7 @@ export default function StudioScene() {
       canvas.dataset.fallback = 'true';
       return;
     }
+    canvas.dataset.ready = 'true';
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(34, 1, .1, 100);
     camera.position.set(0, 0, 7.4);
@@ -106,6 +107,8 @@ export default function StudioScene() {
       });
       renderer.dispose();
     };
+    }).catch(() => {
+      if (!canceled) canvas.dataset.fallback = 'true';
     });
     return () => {
       canceled = true;
@@ -113,5 +116,16 @@ export default function StudioScene() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="studio-canvas" aria-hidden="true" />;
+  return <div className="studio-scene" aria-hidden="true">
+    <canvas ref={canvasRef} className="studio-canvas" />
+    <div className="studio-fallback">
+      <div className="studio-fallback-object">
+        <span className="studio-fallback-ring studio-fallback-ring-one" />
+        <span className="studio-fallback-ring studio-fallback-ring-two" />
+        <span className="studio-fallback-core" />
+        <span className="studio-fallback-spark studio-fallback-spark-one" />
+        <span className="studio-fallback-spark studio-fallback-spark-two" />
+      </div>
+    </div>
+  </div>;
 }
